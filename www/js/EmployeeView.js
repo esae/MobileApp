@@ -5,6 +5,7 @@ var EmployeeView = function(adapter, template, employee) {
         this.el.on('click', '.add-location-btn', this.addLocation);
         this.el.on('click', '.add-contact-btn', this.addToContacts);
         this.el.on('click', '.change-pic-btn', this.changePicture);
+        this.el.on('click', '.sms-btn', this.sms);
     };
 
     this.render = function() {
@@ -38,6 +39,21 @@ var EmployeeView = function(adapter, template, employee) {
         phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true);
         contact.phoneNumbers = phoneNumbers;
         contact.save();
+        return false;
+    };
+
+    this.sms = function(event) {
+        event.preventDefault();
+        var number = employee.cellPhone;
+        var message = "Test SMS";
+        var intent = "INTENT"; //leave empty for sending sms using default intent
+        var success = function() {
+            alert('Message sent successfully');
+        };
+        var error = function(e) {
+            alert('Message Failed:' + e);
+        };
+        sms.send(number, message, intent, success, error);
         return false;
     };
 

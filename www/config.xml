@@ -12,5 +12,6 @@
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.contacts" />
     <gap:plugin name="org.apache.cordova.geolocation" />
+    <gap:plugin name="tr.bel.mamak.sms_plagin" />
     <access origin="*"/>
 </widget>
