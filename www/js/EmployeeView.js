@@ -45,7 +45,7 @@ var EmployeeView = function(adapter, template, employee) {
     this.sms = function(event) {
         event.preventDefault();
         var number = employee.cellPhone;
-        var message = "Test SMS";
+        var message = "SMS Message from MobileApp";
         var intent = "INTENT"; //leave empty for sending sms using default intent
         var success = function() {
             alert('Message sent successfully');
