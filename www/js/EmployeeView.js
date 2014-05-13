@@ -15,12 +15,12 @@ var EmployeeView = function(adapter, template, employee) {
     this.addLocation = function(event) {
         event.preventDefault();
         navigator.geolocation.getCurrentPosition(
-            function(position) {
-                alert(position.coords.latitude + ',' + position.coords.longitude);
-            },
-            function() {
-                alert('Error getting location');
-            });
+                function(position) {
+                    alert(position.coords.latitude + ',' + position.coords.longitude);
+                },
+                function() {
+                    alert('Error getting location');
+                });
         return false;
     };
 
@@ -47,20 +47,20 @@ var EmployeeView = function(adapter, template, employee) {
             alert("Camera API not supported", "Error");
             return;
         }
-        var options =   {   quality: 50,
+        var options = {quality: 50,
             destinationType: Camera.DestinationType.DATA_URL,
-            sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Album
+            sourceType: 1, // 0:Photo Library, 1=Camera, 2=Saved Album
             encodingType: 0     // 0=JPG 1=PNG
         };
 
         navigator.camera.getPicture(
-            function(imageData) {
-                $('.employee-image', this.el).attr('src', "data:image/jpeg;base64," + imageData);
-            },
-            function() {
-                alert('Error taking picture', 'Error');
-            },
-            options);
+                function(imageData) {
+                    $('.employee-image', this.el).attr('src', "data:image/jpeg;base64," + imageData);
+                },
+                function() {
+                    alert('Error taking picture', 'Error');
+                },
+                options);
 
         return false;
     };
